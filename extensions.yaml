@@ -1,0 +1,147 @@
+# Code file extensions for which direct Read/Edit/Write/Grep/Bash is FORBIDDEN.
+# Use Serena MCP tools and/or Claude LSP tools instead.
+#
+# Fields per entry:
+#   ext         - file extension (lowercase, leading dot)
+#   serena      - true if Serena MCP has full semantic support (via installed LSP server)
+#   lsp_plugin  - Claude plugin ID that provides LSP for this extension, or null
+#
+# Installed Claude LSP plugins (from ~/.claude/settings.json):
+#   typescript-lsp@claude-plugins-official  → TS / JS / JSX / TSX / Vue / Svelte
+#   pyright-lsp@claude-plugins-official     → Python
+#   gopls-lsp@claude-plugins-official       → Go
+#   rust-analyzer-lsp@claude-plugins-official → Rust
+
+extensions:
+  # ── TypeScript / JavaScript ──────────────────────────────────────────────
+  - ext: .ts
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  - ext: .tsx
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  - ext: .d.ts
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  - ext: .js
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  - ext: .jsx
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  - ext: .mjs
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  - ext: .cjs
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  # ── Python ───────────────────────────────────────────────────────────────
+  - ext: .py
+    serena: true
+    lsp_plugin: "pyright-lsp@claude-plugins-official"
+
+  - ext: .pyi
+    serena: true
+    lsp_plugin: "pyright-lsp@claude-plugins-official"
+
+  # ── Go ───────────────────────────────────────────────────────────────────
+  - ext: .go
+    serena: true
+    lsp_plugin: "gopls-lsp@claude-plugins-official"
+
+  # ── Rust ─────────────────────────────────────────────────────────────────
+  - ext: .rs
+    serena: true
+    lsp_plugin: "rust-analyzer-lsp@claude-plugins-official"
+
+  # ── Frontend frameworks (use TypeScript LSP) ─────────────────────────────
+  - ext: .vue
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  - ext: .svelte
+    serena: true
+    lsp_plugin: "typescript-lsp@claude-plugins-official"
+
+  # ── Java / JVM ───────────────────────────────────────────────────────────
+  # Serena works if a JVM LSP (e.g. jdtls) is installed on the system.
+  # No Claude LSP plugin available — Serena tools only.
+  - ext: .java
+    serena: true
+    lsp_plugin: null
+
+  - ext: .kt
+    serena: true
+    lsp_plugin: null
+
+  - ext: .kts
+    serena: true
+    lsp_plugin: null
+
+  - ext: .scala
+    serena: true
+    lsp_plugin: null
+
+  # ── C / C++ ──────────────────────────────────────────────────────────────
+  # Serena works if clangd is installed on the system.
+  # No Claude LSP plugin available — Serena tools only.
+  - ext: .c
+    serena: true
+    lsp_plugin: null
+
+  - ext: .cpp
+    serena: true
+    lsp_plugin: null
+
+  - ext: .cc
+    serena: true
+    lsp_plugin: null
+
+  - ext: .cxx
+    serena: true
+    lsp_plugin: null
+
+  - ext: .h
+    serena: true
+    lsp_plugin: null
+
+  - ext: .hpp
+    serena: true
+    lsp_plugin: null
+
+  - ext: .hxx
+    serena: true
+    lsp_plugin: null
+
+  # ── C# ───────────────────────────────────────────────────────────────────
+  - ext: .cs
+    serena: true
+    lsp_plugin: null
+
+  # ── Ruby ─────────────────────────────────────────────────────────────────
+  - ext: .rb
+    serena: true
+    lsp_plugin: null
+
+  # ── PHP ──────────────────────────────────────────────────────────────────
+  - ext: .php
+    serena: true
+    lsp_plugin: null
+
+  # ── Swift ────────────────────────────────────────────────────────────────
+  - ext: .swift
+    serena: true
+    lsp_plugin: null
+
+  # ── Lua ──────────────────────────────────────────────────────────────────
+  # Serena support limited; no Claude LSP plugin.
+  - ext: .lua
+    serena: false
+    lsp_plugin: null
