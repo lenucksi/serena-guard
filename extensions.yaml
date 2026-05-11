@@ -6,11 +6,9 @@
 #   serena      - true if Serena MCP has full semantic support (via installed LSP server)
 #   lsp_plugin  - Claude plugin ID that provides LSP for this extension, or null
 #
-# Installed Claude LSP plugins (from ~/.claude/settings.json):
-#   typescript-lsp@claude-plugins-official  → TS / JS / JSX / TSX / Vue / Svelte
-#   pyright-lsp@claude-plugins-official     → Python
-#   gopls-lsp@claude-plugins-official       → Go
-#   rust-analyzer-lsp@claude-plugins-official → Rust
+# Plugin sources:
+#   claude-plugins-official  — official Anthropic-maintained plugins (auto-available)
+#   claude-code-lsps         — community collection (github.com/boostvolt/claude-code-lsps)
 
 extensions:
   # ── TypeScript / JavaScript ──────────────────────────────────────────────
@@ -70,78 +68,199 @@ extensions:
     serena: true
     lsp_plugin: "typescript-lsp@claude-plugins-official"
 
-  # ── Java / JVM ───────────────────────────────────────────────────────────
-  # Serena works if a JVM LSP (e.g. jdtls) is installed on the system.
-  # No Claude LSP plugin available — Serena tools only.
+  # ── Java ─────────────────────────────────────────────────────────────────
   - ext: .java
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "jdtls-lsp@claude-plugins-official"
 
+  # ── Kotlin ───────────────────────────────────────────────────────────────
   - ext: .kt
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "kotlin-lsp@claude-plugins-official"
 
   - ext: .kts
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "kotlin-lsp@claude-plugins-official"
 
+  # ── Scala ────────────────────────────────────────────────────────────────
+  # Serena works if a JVM LSP (e.g. metals) is installed on the system.
+  # No official or community Claude LSP plugin available yet.
   - ext: .scala
     serena: true
     lsp_plugin: null
 
-  # ── C / C++ ──────────────────────────────────────────────────────────────
-  # Serena works if clangd is installed on the system.
-  # No Claude LSP plugin available — Serena tools only.
+  # ── C / C++ / Objective-C ────────────────────────────────────────────────
   - ext: .c
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
 
   - ext: .cpp
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
 
   - ext: .cc
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
 
   - ext: .cxx
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
 
   - ext: .h
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
 
   - ext: .hpp
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
 
   - ext: .hxx
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
+
+  - ext: .m
+    serena: true
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
+
+  - ext: .mm
+    serena: true
+    lsp_plugin: "clangd-lsp@claude-plugins-official"
 
   # ── C# ───────────────────────────────────────────────────────────────────
   - ext: .cs
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "csharp-lsp@claude-plugins-official"
+
+  - ext: .csx
+    serena: true
+    lsp_plugin: "csharp-lsp@claude-plugins-official"
 
   # ── Ruby ─────────────────────────────────────────────────────────────────
   - ext: .rb
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "ruby-lsp@claude-plugins-official"
+
+  - ext: .rake
+    serena: true
+    lsp_plugin: "ruby-lsp@claude-plugins-official"
+
+  - ext: .gemspec
+    serena: true
+    lsp_plugin: "ruby-lsp@claude-plugins-official"
+
+  - ext: .ru
+    serena: true
+    lsp_plugin: "ruby-lsp@claude-plugins-official"
+
+  - ext: .erb
+    serena: true
+    lsp_plugin: "ruby-lsp@claude-plugins-official"
 
   # ── PHP ──────────────────────────────────────────────────────────────────
   - ext: .php
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "php-lsp@claude-plugins-official"
+
+  - ext: .phtml
+    serena: true
+    lsp_plugin: "php-lsp@claude-plugins-official"
 
   # ── Swift ────────────────────────────────────────────────────────────────
   - ext: .swift
     serena: true
-    lsp_plugin: null
+    lsp_plugin: "swift-lsp@claude-plugins-official"
 
   # ── Lua ──────────────────────────────────────────────────────────────────
-  # Serena support limited; no Claude LSP plugin.
   - ext: .lua
-    serena: false
-    lsp_plugin: null
+    serena: true
+    lsp_plugin: "lua-lsp@claude-plugins-official"
+
+  # ── Bash / Shell ─────────────────────────────────────────────────────────
+  # community: bash-language-server@claude-code-lsps
+  - ext: .sh
+    serena: true
+    lsp_plugin: "bash-language-server@claude-code-lsps"
+
+  - ext: .bash
+    serena: true
+    lsp_plugin: "bash-language-server@claude-code-lsps"
+
+  - ext: .zsh
+    serena: true
+    lsp_plugin: "bash-language-server@claude-code-lsps"
+
+  - ext: .ksh
+    serena: true
+    lsp_plugin: "bash-language-server@claude-code-lsps"
+
+  # ── Dart ─────────────────────────────────────────────────────────────────
+  # community: dart-analyzer@claude-code-lsps
+  - ext: .dart
+    serena: true
+    lsp_plugin: "dart-analyzer@claude-code-lsps"
+
+  # ── Elixir ───────────────────────────────────────────────────────────────
+  # community: elixir-ls@claude-code-lsps
+  - ext: .ex
+    serena: true
+    lsp_plugin: "elixir-ls@claude-code-lsps"
+
+  - ext: .exs
+    serena: true
+    lsp_plugin: "elixir-ls@claude-code-lsps"
+
+  # ── Gleam ────────────────────────────────────────────────────────────────
+  # community: gleam@claude-code-lsps
+  - ext: .gleam
+    serena: true
+    lsp_plugin: "gleam@claude-code-lsps"
+
+  # ── Clojure ──────────────────────────────────────────────────────────────
+  # community: clojure-lsp@claude-code-lsps
+  - ext: .clj
+    serena: true
+    lsp_plugin: "clojure-lsp@claude-code-lsps"
+
+  - ext: .cljs
+    serena: true
+    lsp_plugin: "clojure-lsp@claude-code-lsps"
+
+  - ext: .cljc
+    serena: true
+    lsp_plugin: "clojure-lsp@claude-code-lsps"
+
+  # ── Nix ──────────────────────────────────────────────────────────────────
+  # community: nixd@claude-code-lsps
+  - ext: .nix
+    serena: true
+    lsp_plugin: "nixd@claude-code-lsps"
+
+  # ── OCaml ────────────────────────────────────────────────────────────────
+  # community: ocaml-lsp@claude-code-lsps
+  - ext: .ml
+    serena: true
+    lsp_plugin: "ocaml-lsp@claude-code-lsps"
+
+  - ext: .mli
+    serena: true
+    lsp_plugin: "ocaml-lsp@claude-code-lsps"
+
+  # ── Terraform ────────────────────────────────────────────────────────────
+  # community: terraform-ls@claude-code-lsps
+  - ext: .tf
+    serena: true
+    lsp_plugin: "terraform-ls@claude-code-lsps"
+
+  - ext: .tfvars
+    serena: true
+    lsp_plugin: "terraform-ls@claude-code-lsps"
+
+  # ── Zig ──────────────────────────────────────────────────────────────────
+  # community: zls@claude-code-lsps
+  - ext: .zig
+    serena: true
+    lsp_plugin: "zls@claude-code-lsps"
+
+  - ext: .zon
+    serena: true
+    lsp_plugin: "zls@claude-code-lsps"
