@@ -196,10 +196,18 @@ header = f"⛔ FORBIDDEN — {tool} on code files. {serena_status}."
 if matched_ext:
     header += f"  [{matched_ext}]"
 
-lines = [header, f"Target: {fp or cmd}", "", specific]
+short_reason = f"{header}\nTarget: {fp or cmd}"
+context_lines = ["", specific]
 if lsp_line:
-    lines += ["", lsp_line]
-lines += ["", setup]
+    context_lines += ["", lsp_line]
+context_lines += ["", setup]
+context = "\n".join(context_lines).strip()
 
-stop_reason = "\n".join(lines)
-print(json.dumps({"continue": False, "stopReason": stop_reason}))
+print(json.dumps({
+    "hookSpecificOutput": {
+        "hookEventName": "PreToolUse",
+        "permissionDecision": "deny",
+        "permissionDecisionReason": short_reason,
+        "additionalContext": context,
+    }
+}))
