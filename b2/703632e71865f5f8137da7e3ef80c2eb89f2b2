@@ -1,0 +1,66 @@
+guard.sh
+  s_0889b408788e29::t_f32d99c5355f60 3,10,15,17-23
+tsconfig.json
+  s_0889b408788e29::t_8a9d220cb19300 2-11
+  s_0889b408788e29::t_da6193f25f1b08 1,12
+.gitignore
+  s_0889b408788e29::t_816b3cc3582e94 1-5
+.github/workflows/ci.yml
+  s_0889b408788e29::t_540dc7b9cddebc 1-52
+install.sh
+  s_0889b408788e29::t_59b66cd9cb94f2 1-73,76-128
+claude-hook.ts
+  s_0889b408788e29::t_a33ac89af216ce 1
+  s_0889b408788e29::t_8c6f3e03647289 2-33
+dev.sh
+  s_0889b408788e29::t_73e23098e2da97 1-33
+guard-core.ts
+  s_0889b408788e29::t_a33ac89af216ce 1-4,6,59,131,205
+  s_0889b408788e29::t_ab6d43dbaf93d9 311
+  s_0889b408788e29::t_8a9d220cb19300 41-56,162-165,277,296,302
+  s_0889b408788e29::t_19047f3481bc42 5,7-40,57-58,60-130,132-161,166-204,206-276,278-295,297-301,303-310,312-345,347-360
+  s_0889b408788e29::t_805d134faa9fbe 346
+.github/workflows/publish.yml
+  s_0889b408788e29::t_74dc31e33512a5 1-39
+README.md
+  s_0889b408788e29::t_3dce68dcc83069 3-6,10-11,21-23,39-41,44,48-50,53-55,60,73,78-87,90-91,94-97,99-105,107,120,130-169,182,190,192,194,202-276,278
+.claude-plugin/plugin.json
+  s_0889b408788e29::t_79e3bdfe3565fc 1-13
+hooks/hooks.json
+  s_0889b408788e29::t_77391ca9f7377f 1-17
+opencode-plugin.ts
+  s_0889b408788e29::t_f416ba3e76fe71 2-29
+  s_0889b408788e29::t_a33ac89af216ce 1
+guard-core.test.ts
+  s_0889b408788e29::t_a33ac89af216ce 1-4,6,8,11,40-42,59,67,82
+  s_0889b408788e29::t_8a9d220cb19300 107,113,119,125,131,143,149,155,215
+  s_0889b408788e29::t_a0a5369094b57e 5,7,9-10,12-39,43-58,60-66,68-81,83-106,108-112,114-118,120-124,126-130,132-142,144-148,150-154,156-214,216-232,236-237
+  s_0889b408788e29::t_a09da14b2696c0 233-235
+bun.lock
+  ai_agent 1-52
+.github/renovate.json
+  s_0889b408788e29::t_ab71bdf3bad8af 1,28
+  s_0889b408788e29::t_8a9d220cb19300 2-27
+biome.json
+  s_0889b408788e29::t_d4c227246ef738 2-21
+  s_0889b408788e29::t_cdf952263d8df6 1,22
+package.json
+  s_0889b408788e29::t_0b9afd7735cc40 1,48
+  s_0889b408788e29::t_8a9d220cb19300 2-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "b2703632e71865f5f8137da7e3ef80c2eb89f2b2",
+  "prompts": {},
+  "sessions": {
+    "s_0889b408788e29": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ba007397ffew8GpKkjjNOS5yU",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Lenucksi <lenucksi@users.noreply.github.com>"
+    }
+  }
+}
