@@ -1,0 +1,28 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:recommended",
+		"helpers:pinGitHubActionDigests",
+		":dependencyDashboard",
+		":semanticCommits"
+	],
+	"labels": ["dependencies"],
+	"assignees": ["@lenucksi"],
+	"schedule": ["0 4 * * *"],
+	"timezone": "Europe/Berlin",
+	"platformAutomerge": true,
+	"packageRules": [{ "matchUpdateTypes": ["minor", "patch", "pin", "digest"], "automerge": true }],
+	"vulnerabilityAlerts": {
+		"labels": ["security"],
+		"assignees": ["@lenucksi"],
+		"automerge": false
+	},
+	"prConcurrentLimit": 5,
+	"prCreation": "immediate",
+	"prHourlyLimit": 0,
+	"configMigration": true,
+	"dependencyDashboard": true,
+	"dependencyDashboardTitle": "Dependency Dashboard \ud83e\udd16",
+	"dependencyDashboardHeader": "This dashboard tracks pending dependency updates.",
+	"commitMessagePrefix": "chore(deps):"
+}

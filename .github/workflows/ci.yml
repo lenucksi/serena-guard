@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0bd08f07180f6 # v2.0.1
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run check .
+      - run: bunx tsc --noEmit
+      - uses: reviewdog/action-actionlint@a7e7e36f2c77b33eeb7862a4d1ed6317ca9a7a5e # v1.65.2
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0bd08f07180f6 # v2.0.1
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun test guard-core.test.ts
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0bd08f07180f6 # v2.0.1
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run guard:build
+      - run: bun run guard:build:claude
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: opencode-plugin
+          path: opencode-plugin.js

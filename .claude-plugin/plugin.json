@@ -1,0 +1,13 @@
+{
+	"name": "serena-guard",
+	"displayName": "Serena Guard",
+	"description": "Blocks direct file access to code files and redirects to Serena MCP / LSP tools",
+	"version": "1.0.0",
+	"author": {
+		"name": "lenucksi"
+	},
+	"homepage": "https://github.com/Lenucksi/serena-guard",
+	"repository": "https://github.com/Lenucksi/serena-guard",
+	"license": "MIT",
+	"keywords": ["serena", "guard", "mcp", "lsp", "code"]
+}

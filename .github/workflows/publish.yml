@@ -1,0 +1,39 @@
+name: Publish @lenucksi/serena-guard
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: "Version bump type"
+        required: true
+        default: "patch"
+        type: choice
+        options: [patch, minor, major]
+  push:
+    tags: ["serena-guard-v*"]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0bd08f07180f6 # v2.0.1
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run check .
+      - run: bun test guard-core.test.ts
+      - run: bun run guard:build
+      - run: bun run guard:build:claude
+      - if: github.event_name == 'workflow_dispatch'
+        run: |
+          cd packages/serena-guard
+          npm version ${{ github.event.inputs.version_bump }} --no-git-tag-version
+      - run: |
+          echo "@lenucksi:registry=https://npm.pkg.github.com" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+      - run: npm publish

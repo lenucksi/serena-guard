@@ -1,0 +1,48 @@
+{
+	"name": "@lenucksi/serena-guard",
+	"version": "1.0.0",
+	"description": "Blocks direct file access to code files and redirects to Serena MCP / LSP tools. Supports Claude Code (PreToolUse hook) and OpenCode (tool.execute.before plugin).",
+	"type": "module",
+	"main": "./opencode-plugin.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Lenucksi/serena-guard.git"
+	},
+	"homepage": "https://github.com/Lenucksi/serena-guard",
+	"keywords": [
+		"opencode",
+		"claude-code",
+		"plugin",
+		"serena",
+		"guard",
+		"mcp",
+		"lsp"
+	],
+	"license": "MIT",
+	"files": [
+		"./opencode-plugin.js",
+		"./extensions.yaml"
+	],
+	"devDependencies": {
+		"@biomejs/biome": "2.4.12",
+		"@types/bun": "1.3.12",
+		"@types/shell-quote": "^1.7.5",
+		"shell-quote": "^1.8.3",
+		"typescript": "5.8.3",
+		"yaml": "^2.7.1"
+	},
+	"scripts": {
+		"guard:test": "bun test guard-core.test.ts",
+		"guard:build": "bun build opencode-plugin.ts --outfile opencode-plugin.js --target=node --format=esm",
+		"guard:build:claude": "bun build claude-hook.ts --outfile claude-hook.js --target=node --format=esm --external=yaml --external=shell-quote",
+		"guard:dev": "bun run guard:test && bun run guard:build && bun run guard:build:claude",
+		"format": "biome format --write .",
+		"lint": "biome lint --write .",
+		"check": "biome check .",
+		"check:types": "bunx tsc --noEmit"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com",
+		"access": "public"
+	}
+}
