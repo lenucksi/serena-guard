@@ -1,0 +1,21 @@
+scripts/setup.sh
+  s_0889b408788e29::t_cd5cdc5ea7b41a 1-30,32-34,36-66,68-76
+  s_0889b408788e29::t_219368b1a035d7 67
+  s_0889b408788e29::t_9fbbe00d3b37b1 31,35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "0bc74dce9607e66f18de7e357dd8520c772bfb5c",
+  "prompts": {},
+  "sessions": {
+    "s_0889b408788e29": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ba007397ffew8GpKkjjNOS5yU",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Lenucksi <lenucksi@users.noreply.github.com>"
+    }
+  }
+}
