@@ -1,0 +1,20 @@
+opencode-plugin.ts
+  s_0889b408788e29::t_48485b6159595c 28-32,37
+  s_0889b408788e29::t_0d434b2f887193 33-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "50e5bf7790f0f9dfafa2f5a001912d1ef8381023",
+  "prompts": {},
+  "sessions": {
+    "s_0889b408788e29": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ba007397ffew8GpKkjjNOS5yU",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Lenucksi <lenucksi@users.noreply.github.com>"
+    }
+  }
+}
